@@ -34,13 +34,18 @@ class YahooProvider(AbstractProvider):
         if not self.yf:
             raise ProviderError("yfinance is not installed")
 
-        # ^SPX is the Yahoo ticker for S&P 500
-        yf_ticker = "^SPX" if ticker.upper() == "SPX" else ticker
+        # Major indices in Yahoo Finance require a '^' prefix
+        indices = {"SPX", "NDX", "DJI", "RUT", "VIX"}
+        yf_ticker = f"^{ticker.upper()}" if ticker.upper() in indices else ticker
+        
         tk = self.yf.Ticker(yf_ticker)
         
         try:
             expirations = tk.options
-            spot_price = tk.history(period="1d")['Close'].iloc[-1]
+            hist = tk.history(period="1d")
+            if hist.empty:
+                raise ProviderError(f"No price data found for {yf_ticker}")
+            spot_price = hist['Close'].iloc[-1]
         except Exception as e:
             raise ProviderError(f"Failed to fetch data from Yahoo: {e}")
 
