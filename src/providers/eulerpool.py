@@ -13,10 +13,31 @@ class EulerpoolProvider(AbstractProvider):
         self.api_key = settings.eulerpool_api_key
         # For Eulerpool, SPX/SPY ISIN might be needed. We'll map ticker to ISIN if known.
         # Known limitation: Eulerpool mostly uses ISIN. 
+        # Expanded dictionary mapping Tickers to ISINs for Eulerpool
         self.ticker_to_isin = {
-            "AAPL": "US0378331005",
-            "SPX": "US78378X1072",  # S&P 500 Index
-            "SPY": "US78462F1030",  # SPDR S&P 500 ETF
+            # --- Global Indices & ETFs ---
+            "SPX": "US78378X1072",   # S&P 500 Index
+            "SPY": "US78462F1030",   # SPDR S&P 500 ETF
+            "NDX": "US6311011026",   # Nasdaq 100 Index
+            "QQQ": "US46090E1038",   # Invesco QQQ ETF
+            "DJI": "US2605661048",   # Dow Jones Industrial Average
+            "RUT": "US78248T1025",   # Russell 2000 Index
+            
+            # --- Mega-Cap / Blue Chips (US) ---
+            "AAPL": "US0378331005",  # Apple Inc.
+            "MSFT": "US5949181045",  # Microsoft
+            "NVDA": "US67066G1040",  # NVIDIA
+            "TSLA": "US88160R1014",  # Tesla
+            "AMZN": "US0231351067",  # Amazon
+            "GOOGL": "US02079K3059", # Alphabet Class A
+            "META": "US30303M1027",  # Meta Platforms
+            "BRK.B": "US0846707026", # Berkshire Hathaway Class B
+            "JPM": "US46625H1005",   # JPMorgan Chase
+            "JNJ": "US4781601046",   # Johnson & Johnson
+            "V": "US92826C8394",     # Visa
+            "WMT": "US9311421039",   # Walmart
+            "PG": "US7427181091",    # Procter & Gamble
+            "UNH": "US91324P1021",   # UnitedHealth Group
         }
 
     @property
