@@ -222,3 +222,19 @@ MIT License. See [LICENSE](LICENSE) for details.
 - [Eulerpool](https://eulerpool.com) — Primary options data source
 - [Polygon.io](https://polygon.io) — Institutional-grade market data
 - [SpotGamma](https://spotgamma.com) — Inspiration for GEX methodology and visualization
+
+---
+
+## 🏛️ Original Work & Attribution
+
+This project is a professional refactor of the original **[SPX500-Gamma-Exposure-Calculator](https://github.com/phammings/SPX500-Gamma-Exposure-Calculator)** by [**@phammings**](https://github.com/phammings).
+
+The original repository established the core GEX concept, the Black-Scholes gamma formula, and the initial data pipeline using CBOE CSV files. This fork builds on that foundation by introducing:
+
+- A production-ready **API routing layer** (Eulerpool → Polygon → Yahoo Finance)
+- **Fully vectorized** NumPy/SciPy mathematics replacing Python loops
+- A **quota-aware caching system** for rate-limited data providers
+- Strongly-typed **data models** with Pydantic
+- A **professional CLI** and automated dashboard generation
+
+Full credit to the original author for the conceptual and mathematical groundwork that made this refactor possible.
