@@ -10,6 +10,8 @@
 > **Professional-grade Gamma Exposure (GEX) analysis tool for the S&P 500 and US equities.**
 > Built with API routing, vectorized Black-Scholes mathematics, and an automated quota-aware cache system.
 
+![SPX GEX Dashboard Example](assets/dashboard_example.png)
+
 ---
 
 ## 📊 What is Gamma Exposure (GEX)?
