@@ -1,0 +1,32 @@
+[project]
+name = "spx-gex-pro"
+version = "0.1.0"
+description = "Professional SPX500 Gamma Exposure Calculator with API Routing"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0",
+    "pandas>=2.2",
+    "matplotlib>=3.9",
+    "scipy>=1.14",
+    "polygon-api-client>=1.14",
+    "yfinance>=0.2.40",
+    "httpx>=0.27",
+    "typer>=0.12",
+    "python-dotenv>=1.0",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "plotly>=5.22",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=5.0",
+    "ruff>=0.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
